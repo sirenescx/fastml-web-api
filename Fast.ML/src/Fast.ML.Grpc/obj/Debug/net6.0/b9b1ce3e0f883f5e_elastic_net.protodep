@@ -1,0 +1,2 @@
+obj/Debug/net6.0/ElasticNet.cs \
+obj/Debug/net6.0/ElasticNetGrpc.cs: ../proto/elastic_net.proto

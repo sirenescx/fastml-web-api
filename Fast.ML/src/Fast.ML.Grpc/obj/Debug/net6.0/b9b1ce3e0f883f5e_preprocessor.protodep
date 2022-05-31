@@ -1,0 +1,2 @@
+obj/Debug/net6.0/Preprocessor.cs \
+obj/Debug/net6.0/PreprocessorGrpc.cs: ../proto/preprocessor.proto

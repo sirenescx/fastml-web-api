@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+//import "google/api/struct.proto";
+
+package fast_ml_ridge;
+
+option csharp_namespace = "Fast.ML.Ridge.Grpc";
+option go_package = "fastmlridgespb";
+option java_multiple_files = true;
+option java_outer_classname = "FastMLRidgeProto";
+option java_package = "com.fastmlridge";
+
+service RidgeService {
+    rpc Train (TrainingRequest) returns (TrainingResponse);
+    rpc Predict (PredictionRequest) returns (PredictionResponse);
+}
+
+// TODO: как сторить пиклы в базке
+// TODO: как передавать пикл в запросе
+
+message TrainingRequest {
+    string filepath = 1;
+    map<string, string> parameters = 2;
+}
+
+message TrainingResponse {
+    string configuration = 1;
+}
+
+message PredictionRequest {
+    string filepath = 1;
+//    google.protobuf.Struct configuration = 2;
+}
+
+message PredictionResponse {
+    string message = 1;
+}

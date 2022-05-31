@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package fast_ml_elastic_net;
+
+option csharp_namespace = "Fast.ML.ElasticNet.Grpc";
+option go_package = "fastmlelasticnetspb";
+option java_multiple_files = true;
+option java_outer_classname = "FastMLElasticNetProto";
+option java_package = "com.fastmlelasticnet";
+
+service ElasticNetService {
+    rpc Train (TrainingRequest) returns (TrainingResponse);
+    rpc Predict (PredictionRequest) returns (PredictionResponse);
+}
+
+// TODO: как сторить пиклы в базке
+// TODO: как передавать пикл в запросе
+
+message TrainingRequest {
+    string filepath = 1;
+    map<string, string> parameters = 2;
+}
+
+message TrainingResponse {
+    string configuration = 1;
+}
+
+message PredictionRequest {
+    string filepath = 1;
+}
+
+message PredictionResponse {
+    string message = 1;
+}

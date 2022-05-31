@@ -1,0 +1,244 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/mmanakhova/Developer/diploma/fast-ml-api/Fast.ML/src/Fast.ML/Fast.ML.csproj": {}
+  },
+  "projects": {
+    "/Users/mmanakhova/Developer/diploma/fast-ml-api/Fast.ML/src/Fast.ML.Grpc/Fast.ML.Grpc.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/mmanakhova/Developer/diploma/fast-ml-api/Fast.ML/src/Fast.ML.Grpc/Fast.ML.Grpc.csproj",
+        "projectName": "Fast.ML.Grpc",
+        "projectPath": "/Users/mmanakhova/Developer/diploma/fast-ml-api/Fast.ML/src/Fast.ML.Grpc/Fast.ML.Grpc.csproj",
+        "packagesPath": "/Users/mmanakhova/.nuget/packages/",
+        "outputPath": "/Users/mmanakhova/Developer/diploma/fast-ml-api/Fast.ML/src/Fast.ML.Grpc/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/mmanakhova/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Google.Api.CommonProtos": {
+              "target": "Package",
+              "version": "[2.5.0, )"
+            },
+            "Google.Protobuf": {
+              "target": "Package",
+              "version": "[3.20.0, )"
+            },
+            "Google.Protobuf.Tools": {
+              "target": "Package",
+              "version": "[3.20.0, )"
+            },
+            "Grpc.AspNetCore": {
+              "target": "Package",
+              "version": "[2.44.0, )"
+            },
+            "Grpc.Net.Client": {
+              "target": "Package",
+              "version": "[2.44.0, )"
+            },
+            "Grpc.Reflection": {
+              "target": "Package",
+              "version": "[2.44.0, )"
+            },
+            "Grpc.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.44.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/Users/mmanakhova/.dotnet/sdk/6.0.200/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/mmanakhova/Developer/diploma/fast-ml-api/Fast.ML/src/Fast.ML/Fast.ML.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/mmanakhova/Developer/diploma/fast-ml-api/Fast.ML/src/Fast.ML/Fast.ML.csproj",
+        "projectName": "Fast.ML",
+        "projectPath": "/Users/mmanakhova/Developer/diploma/fast-ml-api/Fast.ML/src/Fast.ML/Fast.ML.csproj",
+        "packagesPath": "/Users/mmanakhova/.nuget/packages/",
+        "outputPath": "/Users/mmanakhova/Developer/diploma/fast-ml-api/Fast.ML/src/Fast.ML/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/mmanakhova/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/mmanakhova/Developer/diploma/fast-ml-api/Fast.ML/src/Fast.ML.Grpc/Fast.ML.Grpc.csproj": {
+                "projectPath": "/Users/mmanakhova/Developer/diploma/fast-ml-api/Fast.ML/src/Fast.ML.Grpc/Fast.ML.Grpc.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.123, )"
+            },
+            "Google.Api.CommonProtos": {
+              "target": "Package",
+              "version": "[2.5.0, )"
+            },
+            "Google.Api.Gax.Grpc": {
+              "target": "Package",
+              "version": "[3.7.0, )"
+            },
+            "Google.Api.Gax.Grpc.GrpcCore": {
+              "target": "Package",
+              "version": "[3.7.0, )"
+            },
+            "Google.Api.Gax.Grpc.GrpcNetClient": {
+              "target": "Package",
+              "version": "[3.7.0, )"
+            },
+            "Google.Protobuf": {
+              "target": "Package",
+              "version": "[3.20.0, )"
+            },
+            "Google.Protobuf.Tools": {
+              "target": "Package",
+              "version": "[3.20.0, )"
+            },
+            "Grpc.AspNetCore": {
+              "target": "Package",
+              "version": "[2.46.0, )"
+            },
+            "Grpc.AspNetCore.Server.Reflection": {
+              "target": "Package",
+              "version": "[2.44.0, )"
+            },
+            "Grpc.Net.Client": {
+              "target": "Package",
+              "version": "[2.46.0, )"
+            },
+            "Grpc.Reflection": {
+              "target": "Package",
+              "version": "[2.44.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Google": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.AspNetCore.Grpc.Swagger": {
+              "target": "Package",
+              "version": "[0.1.0-alpha.21317.5, )"
+            },
+            "Microsoft.AspNetCore.SignalR": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "Microsoft.AspNetCore.SignalR.Client": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Microsoft.AspNetCore.SignalR.Common": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Microsoft.AspNetCore.SignalR.Core": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.0.0-preview2.22096.2, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "ServiceStack.Extensions": {
+              "target": "Package",
+              "version": "[6.1.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/Users/mmanakhova/.dotnet/sdk/6.0.200/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
