@@ -1,2 +1,0 @@
-obj/Debug/net6.0/Ridge.cs \
-obj/Debug/net6.0/RidgeGrpc.cs: ../proto/ridge.proto

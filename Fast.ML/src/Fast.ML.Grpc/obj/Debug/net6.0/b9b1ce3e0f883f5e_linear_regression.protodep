@@ -1,2 +1,0 @@
-obj/Debug/net6.0/LinearRegression.cs \
-obj/Debug/net6.0/LinearRegressionGrpc.cs: ../proto/linear_regression.proto

@@ -1,2 +1,0 @@
-obj/Debug/net6.0/SgdRegressor.cs \
-obj/Debug/net6.0/SgdRegressorGrpc.cs: ../proto/sgd_regressor.proto

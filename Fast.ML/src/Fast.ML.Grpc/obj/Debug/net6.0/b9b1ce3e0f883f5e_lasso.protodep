@@ -1,2 +1,0 @@
-obj/Debug/net6.0/Lasso.cs \
-obj/Debug/net6.0/LassoGrpc.cs: ../proto/lasso.proto

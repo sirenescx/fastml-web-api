@@ -1,2 +1,0 @@
-obj/Debug/net6.0/LogisticRegression.cs \
-obj/Debug/net6.0/LogisticRegressionGrpc.cs: ../proto/logistic_regression.proto
