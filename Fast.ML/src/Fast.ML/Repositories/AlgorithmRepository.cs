@@ -1,10 +1,7 @@
-using System.Data;
 using Dapper;
 using Fast.ML.Database;
 using Fast.ML.Models;
 using Fast.ML.Registries.Interfaces;
-using Newtonsoft.Json;
-using ServiceStack;
 using Endpoint = Fast.ML.Models.Endpoint;
 
 namespace Fast.ML.Registries;

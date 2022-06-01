@@ -1,12 +1,7 @@
-using System.Runtime.Serialization;
-using System.Security.Cryptography.X509Certificates;
 using Fast.ML.Hubs;
+using Fast.ML.Preprocessor.Grpc;
 using Fast.ML.Services.Interfaces;
 using Fast.ML.Worker.Grpc;
-using Grpc.Core;
-using Grpc.Net.Client;
-using Microsoft.AspNetCore.SignalR;
-using ServiceStack;
 
 // ReSharper disable SuggestBaseTypeForParameterInConstructor
 
@@ -23,23 +18,12 @@ public class MachineLearningService : IMachineLearningService
         ILogger<MachineLearningService> logger,
         IPreprocessingService preprocessingService,
         ILinearRegressionService linearRegressionService,
-        IRidgeRegressionService ridgeRegressionService,
-        ILassoRegressionService lassoRegressionService,
-        IElasticNetRegressionService elasticNetRegressionService,
-        ISGDRegressorService sgdRegressorService,
-        ILogisticRegressionService logisticRegressionService,
         PageUpdateHub pageUpdateHub)
     {
         _logger = logger;
         _preprocessingService = preprocessingService;
         
-        _modelServices[Algorithm.LinearRegression] = linearRegressionService;
-        _modelServices[Algorithm.Ridge] = ridgeRegressionService;
-        _modelServices[Algorithm.Lasso] = lassoRegressionService;
-        _modelServices[Algorithm.ElasticNet] = elasticNetRegressionService;
-        _modelServices[Algorithm.SGDRegressor] = sgdRegressorService;
-
-        _modelServices[Algorithm.LogisticRegression] = logisticRegressionService;
+        _modelServices[MicroserviceType.LinearRegression] = linearRegressionService;
 
         _hub = pageUpdateHub;
     }
@@ -47,7 +31,7 @@ public class MachineLearningService : IMachineLearningService
     public async Task<string> Train(TrainingRequest request, CancellationToken token)
     {
         request.Filename = MoveFile(request.Filename, request.TaskId);
-        var preprocessingRequest = new Preprocessor.Grpc.PreprocessingRequest
+        var preprocessingRequest = new PreprocessingRequest
         {
             Filename = request.Filename,
             Separator = request.Separator,
@@ -62,15 +46,16 @@ public class MachineLearningService : IMachineLearningService
             request.Filename = await _preprocessingService.PreprocessDatasetAsync(preprocessingRequest, token);
             _logger.LogInformation("Training dataset was successfully preprocessed");
         }
-        catch (Exception)
+        catch (Exception e)
         {
-            _logger.LogError("Training dataset was preprocessed successfully");
+            _logger.LogError($"Dataset preprocessing failed {e.StackTrace}");
         }
 
         foreach (var algorithm in request.Algorithms)
         {
-            await _modelServices[algorithm]
-                .TrainAsync(GetTrainingRequest(algorithm, request.Filename), token);
+            var algorithmWithoutPrefix = algorithm.Replace("alg_", string.Empty);
+            await _modelServices[MicroserviceType.LinearRegression]
+                .TrainAsync(GetTrainingRequest(algorithmWithoutPrefix, request.Filename), token);
         }
 
         await _hub.SendMessage(request.TaskId, "train");
@@ -81,7 +66,7 @@ public class MachineLearningService : IMachineLearningService
     public async Task<string> Predict(PredictionRequest request, CancellationToken token)
     {
         request.Filename = MoveFile(request.Filename, request.TaskId);
-        var preprocessingRequest = new Preprocessor.Grpc.PreprocessingRequest
+        var preprocessingRequest = new PreprocessingRequest
         {
             Filename = request.Filename,
             Separator = request.Separator,
@@ -93,8 +78,9 @@ public class MachineLearningService : IMachineLearningService
 
         foreach (var algorithm in request.Algorithms)
         {
-            var predictionsPath = await _modelServices[algorithm]
-                .PredictAsync(GetPredictionRequest(algorithm, request.Filename), token);
+            var algorithmWithoutPrefix = algorithm.Replace("alg_", string.Empty);
+            var predictionsPath = await _modelServices[MicroserviceType.LinearRegression]
+                .PredictAsync(GetPredictionRequest(algorithmWithoutPrefix, request.Filename), token);
             await _hub.SendMessage(predictionsPath, "model");
         }
 
@@ -113,30 +99,58 @@ public class MachineLearningService : IMachineLearningService
         return newFilePath;
     }
 
+    // private static dynamic GetTrainingRequest(string algorithm, string filepath) =>
+    //     algorithm switch
+    //     {
+    //         Algorithm.LinearRegression => new LinearRegression.Grpc.TrainingRequest {Filepath = filepath},
+    //         Algorithm.Ridge => new Ridge.Grpc.TrainingRequest {Filepath = filepath},
+    //         Algorithm.Lasso => new Lasso.Grpc.TrainingRequest {Filepath = filepath},
+    //         Algorithm.ElasticNet => new ElasticNet.Grpc.TrainingRequest {Filepath = filepath},
+    //         Algorithm.SGDRegressor => new SGDRegressor.Grpc.TrainingRequest {Filepath = filepath},
+    //         
+    //         Algorithm.LogisticRegression => new LogisticRegression.Grpc.TrainingRequest {Filepath = filepath},
+    //         _ => new Ridge.Grpc.TrainingRequest {Filepath = filepath}
+    //     };
+    
     private static dynamic GetTrainingRequest(string algorithm, string filepath) =>
         algorithm switch
         {
-            Algorithm.LinearRegression => new LinearRegression.Grpc.TrainingRequest {Filepath = filepath},
-            Algorithm.Ridge => new Ridge.Grpc.TrainingRequest {Filepath = filepath},
-            Algorithm.Lasso => new Lasso.Grpc.TrainingRequest {Filepath = filepath},
-            Algorithm.ElasticNet => new ElasticNet.Grpc.TrainingRequest {Filepath = filepath},
-            Algorithm.SGDRegressor => new SGDRegressor.Grpc.TrainingRequest {Filepath = filepath},
+            LinearRegressionAlgorithms.LinearRegression => new Linear.Regression.Grpc.TrainingRequest {Filepath = filepath, Algorithm = LinearRegressionAlgorithms.LinearRegression},
+            LinearRegressionAlgorithms.Ridge => new Linear.Regression.Grpc.TrainingRequest {Filepath = filepath, Algorithm = LinearRegressionAlgorithms.Ridge},
+            LinearRegressionAlgorithms.Lasso => new Linear.Regression.Grpc.TrainingRequest {Filepath = filepath, Algorithm = LinearRegressionAlgorithms.Lasso},
+            LinearRegressionAlgorithms.Lars => new Linear.Regression.Grpc.TrainingRequest {Filepath = filepath, Algorithm = LinearRegressionAlgorithms.Lars},
+            LinearRegressionAlgorithms.ElasticNet => new Linear.Regression.Grpc.TrainingRequest {Filepath = filepath, Algorithm = LinearRegressionAlgorithms.ElasticNet},
+            LinearRegressionAlgorithms.SGDRegressor => new Linear.Regression.Grpc.TrainingRequest {Filepath = filepath, Algorithm = LinearRegressionAlgorithms.SGDRegressor},
+            LinearRegressionAlgorithms.HuberRegressor => new Linear.Regression.Grpc.TrainingRequest {Filepath = filepath, Algorithm = LinearRegressionAlgorithms.HuberRegressor},
+            LinearRegressionAlgorithms.RANSACRegressor => new Linear.Regression.Grpc.TrainingRequest {Filepath = filepath, Algorithm = LinearRegressionAlgorithms.RANSACRegressor},
             
-            Algorithm.LogisticRegression => new LogisticRegression.Grpc.TrainingRequest {Filepath = filepath},
-            _ => new Ridge.Grpc.TrainingRequest {Filepath = filepath}
+            // Algorithm.LogisticRegression => new LogisticRegression.Grpc.TrainingRequest {Filepath = filepath},
+            // _ => new Ridge.Grpc.TrainingRequest {Filepath = filepath}
         };
+    // private static dynamic GetPredictionRequest(string algorithm, string filepath) =>
+    //     algorithm switch
+    //     {
+    //         Algorithm.LinearRegression => new LinearRegression.Grpc.PredictionRequest {Filepath = filepath},
+    //         Algorithm.Ridge => new Ridge.Grpc.PredictionRequest {Filepath = filepath},
+    //         Algorithm.Lasso => new Lasso.Grpc.PredictionRequest {Filepath = filepath},
+    //         Algorithm.ElasticNet => new ElasticNet.Grpc.PredictionRequest {Filepath = filepath},
+    //         Algorithm.SGDRegressor => new SGDRegressor.Grpc.PredictionRequest {Filepath = filepath},
+    //         
+    //         Algorithm.LogisticRegression => new LogisticRegression.Grpc.PredictionRequest {Filepath = filepath},
+    //         _ => new Ridge.Grpc.PredictionRequest {Filepath = filepath}
+    //     };
     
     private static dynamic GetPredictionRequest(string algorithm, string filepath) =>
         algorithm switch
         {
-            Algorithm.LinearRegression => new LinearRegression.Grpc.PredictionRequest {Filepath = filepath},
-            Algorithm.Ridge => new Ridge.Grpc.PredictionRequest {Filepath = filepath},
-            Algorithm.Lasso => new Lasso.Grpc.PredictionRequest {Filepath = filepath},
-            Algorithm.ElasticNet => new ElasticNet.Grpc.PredictionRequest {Filepath = filepath},
-            Algorithm.SGDRegressor => new SGDRegressor.Grpc.PredictionRequest {Filepath = filepath},
+            LinearRegressionAlgorithms.LinearRegression => new Linear.Regression.Grpc.PredictionRequest {Filepath = filepath, Algorithm =  LinearRegressionAlgorithms.LinearRegression},
+            LinearRegressionAlgorithms.Ridge => new Linear.Regression.Grpc.PredictionRequest {Filepath = filepath, Algorithm =  LinearRegressionAlgorithms.Ridge},
+            LinearRegressionAlgorithms.Lasso => new Linear.Regression.Grpc.PredictionRequest {Filepath = filepath, Algorithm =  LinearRegressionAlgorithms.Lasso},
+            LinearRegressionAlgorithms.ElasticNet => new Linear.Regression.Grpc.PredictionRequest {Filepath = filepath, Algorithm =  LinearRegressionAlgorithms.ElasticNet},
+            LinearRegressionAlgorithms.SGDRegressor => new Linear.Regression.Grpc.PredictionRequest {Filepath = filepath, Algorithm =  LinearRegressionAlgorithms.SGDRegressor},
             
-            Algorithm.LogisticRegression => new LogisticRegression.Grpc.PredictionRequest {Filepath = filepath},
-            _ => new Ridge.Grpc.PredictionRequest {Filepath = filepath}
+            // Algorithm.LogisticRegression => new LogisticRegression.Grpc.PredictionRequest {Filepath = filepath},
+            // _ => new Ridge.Grpc.PredictionRequest {Filepath = filepath}
         };
 
     #region Constants
@@ -147,23 +161,26 @@ public class MachineLearningService : IMachineLearningService
         public const string Predict = "predict";
     }
 
-    private class Algorithm
+    private class LinearRegressionAlgorithms
     {
-        public const string LinearRegression = "alg_LinearRegression";
-        public const string Ridge = "alg_Ridge";
-        public const string SGDRegressor = "alg_SGDRegressor";
-        public const string ElasticNet = "alg_ElasticNet";
-        public const string Lars = "alg_Lars";
-        public const string Lasso = "alg_Lasso";
-        public const string LassoLars = "alg_LassoLars";
-        public const string OrthogonalMatchingPursuit = "alg_OrthogonalMatchingPursuit";
-        public const string ARDRegression = "alg_ARDRegression";
-        public const string BayesianRidge = "alg_BayesianRidge";
-        public const string HuberRegressor = "alg_HuberRegressor";
-        public const string QuantileRegressor = "alg_QuantileRegressor";
-        public const string RANSACRegressor = "alg_RANSACRegressor";
+        public const string LinearRegression = "LinearRegression";
+        public const string Ridge = "Ridge";
+        public const string SGDRegressor = "SGDRegressor";
+        public const string ElasticNet = "ElasticNet";
+        public const string Lars = "Lars";
+        public const string Lasso = "Lasso";
+        public const string LassoLars = "LassoLars";
+        public const string OrthogonalMatchingPursuit = "OrthogonalMatchingPursuit";
+        public const string ARDRegression = "ARDRegression";
+        public const string BayesianRidge = "BayesianRidge";
+        public const string HuberRegressor = "HuberRegressor";
+        public const string QuantileRegressor = "QuantileRegressor";
+        public const string RANSACRegressor = "RANSACRegressor";
+    }
 
-        public const string LogisticRegression = "alg_LogisticRegression";
+    private class MicroserviceType
+    {
+        public const string LinearRegression = "LinearRegression";
     }
 
     #endregion

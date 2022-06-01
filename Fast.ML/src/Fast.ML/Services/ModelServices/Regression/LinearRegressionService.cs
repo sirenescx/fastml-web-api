@@ -1,7 +1,7 @@
-using Fast.ML.LinearRegression.Grpc;
+using Fast.ML.Linear.Regression.Grpc;
 using Fast.ML.Services.Interfaces;
 using LinearRegressionServiceClient =
-    Fast.ML.LinearRegression.Grpc.LinearRegressionService.LinearRegressionServiceClient;
+    Fast.ML.Linear.Regression.Grpc.LinearRegressionService.LinearRegressionServiceClient;
 
 namespace Fast.ML.Services.ModelServices.Regression;
 

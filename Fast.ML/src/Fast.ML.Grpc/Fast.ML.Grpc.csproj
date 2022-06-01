@@ -24,11 +24,7 @@
         <Protobuf Include="../proto/worker.proto" Link="Protos/worker.proto" GrpcServices="Both" />
         <Protobuf Include="../proto/preprocessor.proto" Link="Protos/preprocessor.proto" GrpcServices="Client" />
         
-        <Protobuf Include="../proto/linear_regression.proto" Link="Protos/linear_regression.proto" GrpcServices="Client" />
-        <Protobuf Include="../proto/ridge.proto" Link="Protos/ridge.proto" GrpcServices="Client" />
-        <Protobuf Include="../proto/lasso.proto" Link="Protos/lasso.proto" GrpcServices="Client" />
-        <Protobuf Include="../proto/elastic_net.proto" Link="Protos/elastic_net.proto" GrpcServices="Client" />
-        <Protobuf Include="../proto/sgd_regressor.proto" Link="Protos/sgd_regressor.proto" GrpcServices="Client" />
+        <Protobuf Include="../proto/linear_regression_models.proto" Link="Protos/linear_regression_models.proto" GrpcServices="Client" />
 
         <Protobuf Include="../proto/logistic_regression.proto" Link="Protos/logistic_regression.proto" GrpcServices="Client" />
     </ItemGroup>

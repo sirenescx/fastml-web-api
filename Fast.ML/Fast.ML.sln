@@ -10,9 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "proto", "proto", "{00B868B6
 		src\proto\google\api\annotations.proto = src\proto\google\api\annotations.proto
 		src\proto\preprocessor.proto = src\proto\preprocessor.proto
 		src\proto\worker.proto = src\proto\worker.proto
-		src\proto\linear_regression.proto = src\proto\linear_regression.proto
-		src\proto\ridge.proto = src\proto\ridge.proto
-		src\proto\sgd_regressor.proto = src\proto\sgd_regressor.proto
+		src\proto\linear_regression_models.proto = src\proto\linear_regression_models.proto
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{7D7DBEEC-E3A4-4DDC-AF8E-F60CEF1DCE3C}"

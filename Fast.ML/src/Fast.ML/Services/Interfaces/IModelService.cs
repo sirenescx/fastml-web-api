@@ -13,22 +13,6 @@ public interface ILinearRegressionService : IModelService
 {
 }
 
-public interface IRidgeRegressionService : IModelService
-{
-}
-
-public interface ILassoRegressionService : IModelService
-{
-}
-
-public interface IElasticNetRegressionService : IModelService
-{
-}
-
-public interface ISGDRegressorService : IModelService
-{
-}
-
 public interface ILogisticRegressionService : IModelService
 {
 }
