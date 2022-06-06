@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+import "google/api/annotations.proto";
+
+package fastml;
+
+option csharp_namespace = "Fast.ML.Worker.Grpc";
+option go_package = "fastmlworkerspb";
+option java_multiple_files = true;
+option java_outer_classname = "FastMLWorkerProto";
+option java_package = "com.fastmlworker";
+
+service WorkerService {
+    rpc Train (TrainingRequest) returns (TrainingResponse) {
+        option (google.api.http) = {
+            post: "/train",
+            body: "*"
+        };
+    };
+    
+    rpc Predict (PredictionRequest) returns (PredictionResponse) {
+        option (google.api.http) = {
+            post: "/predict",
+            body: "*"
+        };
+    };
+
+    rpc Run (TaskRequest) returns (TaskResponse) {
+        option (google.api.http) = {
+            post: "/run",
+            body: "*"
+        };
+    };
+}
+
+message TaskRequest {
+    int32 userId = 1;
+}
+
+message TaskResponse {
+    string taskId = 1;
+}
+
+message TrainingRequest {
+    string taskId = 1;
+    string filename = 2;
+    string separator = 3;
+    string target = 4;
+    int32 index = 5;
+    string problemType = 6;
+    repeated string algorithms = 7;
+}
+
+message TrainingResponse {
+    string message = 1;
+}
+
+message PredictionRequest {
+    string taskId = 1;
+    string filename = 2;
+    string separator = 3;
+    int32 index = 4;
+    repeated string algorithms = 5;
+}
+
+message PredictionResponse {
+    string message = 1;
+}

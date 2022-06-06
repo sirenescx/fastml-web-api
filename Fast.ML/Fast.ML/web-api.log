@@ -1,0 +1,205 @@
+2022-06-06T15:08:04.9669960+03:00	INFO	[Microsoft.Hosting.Lifetime]	[ListeningOnAddress]	Now listening on: https://localhost:7131
+2022-06-06T15:08:04.9686580+03:00	INFO	[Microsoft.Hosting.Lifetime]	[ListeningOnAddress]	Now listening on: http://localhost:5282
+2022-06-06T15:08:04.9739180+03:00	INFO	[Microsoft.Hosting.Lifetime]	[0]	Application started. Press Ctrl+C to shut down.
+2022-06-06T15:08:04.9745290+03:00	INFO	[Microsoft.Hosting.Lifetime]	[0]	Hosting environment: Development
+2022-06-06T15:08:04.9745440+03:00	INFO	[Microsoft.Hosting.Lifetime]	[0]	Content root path: /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML
+2022-06-06T15:08:28.6391880+03:00	FAIL	[Fast.ML.Services.MachineLearningService]	[0]	Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (61): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+2022-06-06T15:08:28.6392340+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Started training LinearRegression
+2022-06-06T15:08:28.7952910+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (61): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+2022-06-06T15:08:28.8226750+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	   at Grpc.Net.Client.Balancer.Internal.ConnectionManager.PickAsync(PickContext context, Boolean waitForReady, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)
+   at Fast.ML.Services.ModelServices.Regression.LinearRegressionService.TrainAsync(TrainingRequest request, CancellationToken cancellationToken) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/ModelServices/Regression/LinearRegressionService.cs:line 15
+   at Fast.ML.Services.ModelServices.Regression.LinearRegressionService.TrainAsync[TTrainingRequest](TTrainingRequest request, CancellationToken cancellationToken) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/ModelServices/Regression/LinearRegressionService.cs:line 22
+   at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecuteVoid1[T0](CallSite site, T0 arg0)
+   at Fast.ML.Services.MachineLearningService.Train(TrainingRequest request, CancellationToken token) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/MachineLearningService.cs:line 79
+2022-06-06T15:08:28.8240570+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Started training Ridge
+2022-06-06T15:08:28.8250390+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (61): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+2022-06-06T15:08:28.8252440+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	   at Grpc.Net.Client.Balancer.Internal.ConnectionManager.PickAsync(PickContext context, Boolean waitForReady, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)
+   at Fast.ML.Services.ModelServices.Regression.LinearRegressionService.TrainAsync(TrainingRequest request, CancellationToken cancellationToken) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/ModelServices/Regression/LinearRegressionService.cs:line 15
+   at Fast.ML.Services.ModelServices.Regression.LinearRegressionService.TrainAsync[TTrainingRequest](TTrainingRequest request, CancellationToken cancellationToken) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/ModelServices/Regression/LinearRegressionService.cs:line 22
+   at CallSite.Target(Closure , CallSite , Object )
+   at Fast.ML.Services.MachineLearningService.Train(TrainingRequest request, CancellationToken token) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/MachineLearningService.cs:line 79
+2022-06-06T15:08:28.8253800+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Started training SGDRegressor
+2022-06-06T15:08:28.8256970+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (61): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+2022-06-06T15:08:28.8258430+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	   at Grpc.Net.Client.Balancer.Internal.ConnectionManager.PickAsync(PickContext context, Boolean waitForReady, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)
+   at Fast.ML.Services.ModelServices.Regression.LinearRegressionService.TrainAsync(TrainingRequest request, CancellationToken cancellationToken) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/ModelServices/Regression/LinearRegressionService.cs:line 15
+   at Fast.ML.Services.ModelServices.Regression.LinearRegressionService.TrainAsync[TTrainingRequest](TTrainingRequest request, CancellationToken cancellationToken) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/ModelServices/Regression/LinearRegressionService.cs:line 22
+   at CallSite.Target(Closure , CallSite , Object )
+   at Fast.ML.Services.MachineLearningService.Train(TrainingRequest request, CancellationToken token) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/MachineLearningService.cs:line 79
+2022-06-06T15:08:28.8259100+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Started training ElasticNet
+2022-06-06T15:08:28.8261420+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (61): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+2022-06-06T15:08:28.8262920+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	   at Grpc.Net.Client.Balancer.Internal.ConnectionManager.PickAsync(PickContext context, Boolean waitForReady, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)
+   at Fast.ML.Services.ModelServices.Regression.LinearRegressionService.TrainAsync(TrainingRequest request, CancellationToken cancellationToken) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/ModelServices/Regression/LinearRegressionService.cs:line 15
+   at Fast.ML.Services.ModelServices.Regression.LinearRegressionService.TrainAsync[TTrainingRequest](TTrainingRequest request, CancellationToken cancellationToken) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/ModelServices/Regression/LinearRegressionService.cs:line 22
+   at CallSite.Target(Closure , CallSite , Object )
+   at Fast.ML.Services.MachineLearningService.Train(TrainingRequest request, CancellationToken token) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/MachineLearningService.cs:line 79
+2022-06-06T15:08:28.8263530+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Started training Lars
+2022-06-06T15:08:28.8265730+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (61): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+2022-06-06T15:08:28.8267140+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	   at Grpc.Net.Client.Balancer.Internal.ConnectionManager.PickAsync(PickContext context, Boolean waitForReady, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)
+   at Fast.ML.Services.ModelServices.Regression.LinearRegressionService.TrainAsync(TrainingRequest request, CancellationToken cancellationToken) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/ModelServices/Regression/LinearRegressionService.cs:line 15
+   at Fast.ML.Services.ModelServices.Regression.LinearRegressionService.TrainAsync[TTrainingRequest](TTrainingRequest request, CancellationToken cancellationToken) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/ModelServices/Regression/LinearRegressionService.cs:line 22
+   at CallSite.Target(Closure , CallSite , Object )
+   at Fast.ML.Services.MachineLearningService.Train(TrainingRequest request, CancellationToken token) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/MachineLearningService.cs:line 79
+2022-06-06T15:08:28.8267660+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Started training Lasso
+2022-06-06T15:08:28.8269880+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Status(StatusCode="Unavailable", Detail="Error connecting to subchannel.", DebugException="System.Net.Sockets.SocketException (61): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.SocketConnectivitySubchannelTransport.TryConnectAsync(CancellationToken cancellationToken)")
+2022-06-06T15:08:28.8271330+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	   at Grpc.Net.Client.Balancer.Internal.ConnectionManager.PickAsync(PickContext context, Boolean waitForReady, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Balancer.Internal.BalancerHttpHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Grpc.Net.Client.Internal.GrpcCall`2.RunCall(HttpRequestMessage request, Nullable`1 timeout)
+   at Fast.ML.Services.ModelServices.Regression.LinearRegressionService.TrainAsync(TrainingRequest request, CancellationToken cancellationToken) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/ModelServices/Regression/LinearRegressionService.cs:line 15
+   at Fast.ML.Services.ModelServices.Regression.LinearRegressionService.TrainAsync[TTrainingRequest](TTrainingRequest request, CancellationToken cancellationToken) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/ModelServices/Regression/LinearRegressionService.cs:line 22
+   at CallSite.Target(Closure , CallSite , Object )
+   at Fast.ML.Services.MachineLearningService.Train(TrainingRequest request, CancellationToken token) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/MachineLearningService.cs:line 79
+2022-06-06T15:09:13.8762310+03:00	INFO	[Microsoft.Hosting.Lifetime]	[0]	Application is shutting down...
+2022-06-06T15:09:17.9693340+03:00	INFO	[Microsoft.Hosting.Lifetime]	[ListeningOnAddress]	Now listening on: https://localhost:7131
+2022-06-06T15:09:17.9708280+03:00	INFO	[Microsoft.Hosting.Lifetime]	[ListeningOnAddress]	Now listening on: http://localhost:5282
+2022-06-06T15:09:17.9760020+03:00	INFO	[Microsoft.Hosting.Lifetime]	[0]	Application started. Press Ctrl+C to shut down.
+2022-06-06T15:09:17.9765940+03:00	INFO	[Microsoft.Hosting.Lifetime]	[0]	Hosting environment: Development
+2022-06-06T15:09:17.9766120+03:00	INFO	[Microsoft.Hosting.Lifetime]	[0]	Content root path: /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML
+2022-06-06T15:09:29.1964860+03:00	INFO	[System.Net.Http.HttpClient.PreprocessingServiceClient.LogicalHandler]	[RequestPipelineStart]	Start processing HTTP request POST http://localhost:82/fast_ml_preprocessor.PreprocessingService/PreprocessDataset
+2022-06-06T15:09:29.1978760+03:00	INFO	[System.Net.Http.HttpClient.PreprocessingServiceClient.ClientHandler]	[RequestStart]	Sending HTTP request POST http://localhost:82/fast_ml_preprocessor.PreprocessingService/PreprocessDataset
+2022-06-06T15:09:30.0818580+03:00	INFO	[System.Net.Http.HttpClient.PreprocessingServiceClient.ClientHandler]	[RequestEnd]	Received HTTP response headers after 877.9865ms - 200
+2022-06-06T15:09:30.0823830+03:00	INFO	[System.Net.Http.HttpClient.PreprocessingServiceClient.LogicalHandler]	[RequestPipelineEnd]	End processing HTTP request after 892.6707ms - 200
+2022-06-06T15:09:30.1027450+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Training dataset was successfully preprocessed
+2022-06-06T15:09:30.1027980+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Started training LinearRegression
+2022-06-06T15:09:30.2328470+03:00	INFO	[System.Net.Http.HttpClient.LinearRegressionServiceClient.LogicalHandler]	[RequestPipelineStart]	Start processing HTTP request POST http://localhost:84/fast_ml_linear_regression.LinearRegressionService/Train
+2022-06-06T15:09:30.2328660+03:00	INFO	[System.Net.Http.HttpClient.LinearRegressionServiceClient.ClientHandler]	[RequestStart]	Sending HTTP request POST http://localhost:84/fast_ml_linear_regression.LinearRegressionService/Train
+2022-06-06T15:09:30.3486800+03:00	INFO	[System.Net.Http.HttpClient.LinearRegressionServiceClient.ClientHandler]	[RequestEnd]	Received HTTP response headers after 115.7559ms - 200
+2022-06-06T15:09:30.3487080+03:00	INFO	[System.Net.Http.HttpClient.LinearRegressionServiceClient.LogicalHandler]	[RequestPipelineEnd]	End processing HTTP request after 115.886ms - 200
+2022-06-06T15:09:30.3519500+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Started training Ridge
+2022-06-06T15:09:30.3520290+03:00	INFO	[System.Net.Http.HttpClient.LinearRegressionServiceClient.LogicalHandler]	[RequestPipelineStart]	Start processing HTTP request POST http://localhost:84/fast_ml_linear_regression.LinearRegressionService/Train
+2022-06-06T15:09:30.3520400+03:00	INFO	[System.Net.Http.HttpClient.LinearRegressionServiceClient.ClientHandler]	[RequestStart]	Sending HTTP request POST http://localhost:84/fast_ml_linear_regression.LinearRegressionService/Train
+2022-06-06T15:09:52.1668230+03:00	INFO	[System.Net.Http.HttpClient.LinearRegressionServiceClient.ClientHandler]	[RequestEnd]	Received HTTP response headers after 21814.2574ms - 200
+2022-06-06T15:09:52.1669430+03:00	INFO	[System.Net.Http.HttpClient.LinearRegressionServiceClient.LogicalHandler]	[RequestPipelineEnd]	End processing HTTP request after 21814.9037ms - 200
+2022-06-06T15:09:52.1682650+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Started training SGDRegressor
+2022-06-06T15:09:52.1715420+03:00	INFO	[System.Net.Http.HttpClient.LinearRegressionServiceClient.LogicalHandler]	[RequestPipelineStart]	Start processing HTTP request POST http://localhost:84/fast_ml_linear_regression.LinearRegressionService/Train
+2022-06-06T15:09:52.1715570+03:00	INFO	[System.Net.Http.HttpClient.LinearRegressionServiceClient.ClientHandler]	[RequestStart]	Sending HTTP request POST http://localhost:84/fast_ml_linear_regression.LinearRegressionService/Train
+2022-06-06T15:10:34.4128830+03:00	INFO	[Microsoft.Hosting.Lifetime]	[0]	Application is shutting down...
+2022-06-06T15:10:34.4349310+03:00	INFO	[System.Net.Http.HttpClient.LinearRegressionServiceClient.ClientHandler]	[RequestEnd]	Received HTTP response headers after 42263.2398ms - 200
+2022-06-06T15:10:34.4349570+03:00	INFO	[System.Net.Http.HttpClient.LinearRegressionServiceClient.LogicalHandler]	[RequestPipelineEnd]	End processing HTTP request after 42263.4512ms - 200
+2022-06-06T15:10:39.1817270+03:00	INFO	[Microsoft.Hosting.Lifetime]	[ListeningOnAddress]	Now listening on: https://localhost:7131
+2022-06-06T15:10:39.1831960+03:00	INFO	[Microsoft.Hosting.Lifetime]	[ListeningOnAddress]	Now listening on: http://localhost:5282
+2022-06-06T15:10:39.1884190+03:00	INFO	[Microsoft.Hosting.Lifetime]	[0]	Application started. Press Ctrl+C to shut down.
+2022-06-06T15:10:39.1890340+03:00	INFO	[Microsoft.Hosting.Lifetime]	[0]	Hosting environment: Development
+2022-06-06T15:10:39.1890520+03:00	INFO	[Microsoft.Hosting.Lifetime]	[0]	Content root path: /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML
+2022-06-06T15:11:00.9066860+03:00	INFO	[System.Net.Http.HttpClient.PreprocessingServiceClient.LogicalHandler]	[RequestPipelineStart]	Start processing HTTP request POST http://localhost:82/fast_ml_preprocessor.PreprocessingService/PreprocessDataset
+2022-06-06T15:11:00.9077580+03:00	INFO	[System.Net.Http.HttpClient.PreprocessingServiceClient.ClientHandler]	[RequestStart]	Sending HTTP request POST http://localhost:82/fast_ml_preprocessor.PreprocessingService/PreprocessDataset
+2022-06-06T15:11:01.3208640+03:00	INFO	[System.Net.Http.HttpClient.PreprocessingServiceClient.ClientHandler]	[RequestEnd]	Received HTTP response headers after 407.4093ms - 200
+2022-06-06T15:11:01.3213590+03:00	INFO	[System.Net.Http.HttpClient.PreprocessingServiceClient.LogicalHandler]	[RequestPipelineEnd]	End processing HTTP request after 420.228ms - 200
+2022-06-06T15:11:01.3385450+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Training dataset was successfully preprocessed
+2022-06-06T15:11:01.3391460+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Started training LinearRegression
+2022-06-06T15:11:01.4714540+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Status(StatusCode="Cancelled", Detail="Call canceled by the client.")
+2022-06-06T15:11:01.5172620+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	   at Fast.ML.Services.ModelServices.Regression.LinearRegressionService.TrainAsync(TrainingRequest request, CancellationToken cancellationToken) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/ModelServices/Regression/LinearRegressionService.cs:line 15
+   at Fast.ML.Services.ModelServices.Regression.LinearRegressionService.TrainAsync[TTrainingRequest](TTrainingRequest request, CancellationToken cancellationToken) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/ModelServices/Regression/LinearRegressionService.cs:line 22
+   at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecuteVoid1[T0](CallSite site, T0 arg0)
+   at Fast.ML.Services.MachineLearningService.Train(TrainingRequest request, CancellationToken token) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/MachineLearningService.cs:line 76
+2022-06-06T15:11:01.5183820+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Started training Ridge
+2022-06-06T15:11:01.5186670+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Status(StatusCode="Cancelled", Detail="Call canceled by the client.")
+2022-06-06T15:11:01.5187910+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	   at Fast.ML.Services.ModelServices.Regression.LinearRegressionService.TrainAsync(TrainingRequest request, CancellationToken cancellationToken) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/ModelServices/Regression/LinearRegressionService.cs:line 15
+   at Fast.ML.Services.ModelServices.Regression.LinearRegressionService.TrainAsync[TTrainingRequest](TTrainingRequest request, CancellationToken cancellationToken) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/ModelServices/Regression/LinearRegressionService.cs:line 22
+   at CallSite.Target(Closure , CallSite , Object )
+   at Fast.ML.Services.MachineLearningService.Train(TrainingRequest request, CancellationToken token) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/MachineLearningService.cs:line 76
+2022-06-06T15:11:01.5189210+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Started training SGDRegressor
+2022-06-06T15:11:01.5190250+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Status(StatusCode="Cancelled", Detail="Call canceled by the client.")
+2022-06-06T15:11:01.5191020+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	   at Fast.ML.Services.ModelServices.Regression.LinearRegressionService.TrainAsync(TrainingRequest request, CancellationToken cancellationToken) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/ModelServices/Regression/LinearRegressionService.cs:line 15
+   at Fast.ML.Services.ModelServices.Regression.LinearRegressionService.TrainAsync[TTrainingRequest](TTrainingRequest request, CancellationToken cancellationToken) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/ModelServices/Regression/LinearRegressionService.cs:line 22
+   at CallSite.Target(Closure , CallSite , Object )
+   at Fast.ML.Services.MachineLearningService.Train(TrainingRequest request, CancellationToken token) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/MachineLearningService.cs:line 76
+2022-06-06T15:11:01.5191740+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Started training ElasticNet
+2022-06-06T15:11:01.5216380+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Status(StatusCode="Cancelled", Detail="Call canceled by the client.")
+2022-06-06T15:11:01.5217590+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	   at Fast.ML.Services.ModelServices.Regression.LinearRegressionService.TrainAsync(TrainingRequest request, CancellationToken cancellationToken) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/ModelServices/Regression/LinearRegressionService.cs:line 15
+   at Fast.ML.Services.ModelServices.Regression.LinearRegressionService.TrainAsync[TTrainingRequest](TTrainingRequest request, CancellationToken cancellationToken) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/ModelServices/Regression/LinearRegressionService.cs:line 22
+   at CallSite.Target(Closure , CallSite , Object )
+   at Fast.ML.Services.MachineLearningService.Train(TrainingRequest request, CancellationToken token) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/MachineLearningService.cs:line 76
+2022-06-06T15:11:01.5219390+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Started training Lars
+2022-06-06T15:11:01.5220750+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Status(StatusCode="Cancelled", Detail="Call canceled by the client.")
+2022-06-06T15:11:01.5221480+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	   at Fast.ML.Services.ModelServices.Regression.LinearRegressionService.TrainAsync(TrainingRequest request, CancellationToken cancellationToken) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/ModelServices/Regression/LinearRegressionService.cs:line 15
+   at Fast.ML.Services.ModelServices.Regression.LinearRegressionService.TrainAsync[TTrainingRequest](TTrainingRequest request, CancellationToken cancellationToken) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/ModelServices/Regression/LinearRegressionService.cs:line 22
+   at CallSite.Target(Closure , CallSite , Object )
+   at Fast.ML.Services.MachineLearningService.Train(TrainingRequest request, CancellationToken token) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/MachineLearningService.cs:line 76
+2022-06-06T15:11:01.5222410+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Started training Lasso
+2022-06-06T15:11:01.5223480+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Status(StatusCode="Cancelled", Detail="Call canceled by the client.")
+2022-06-06T15:11:01.5224120+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	   at Fast.ML.Services.ModelServices.Regression.LinearRegressionService.TrainAsync(TrainingRequest request, CancellationToken cancellationToken) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/ModelServices/Regression/LinearRegressionService.cs:line 15
+   at Fast.ML.Services.ModelServices.Regression.LinearRegressionService.TrainAsync[TTrainingRequest](TTrainingRequest request, CancellationToken cancellationToken) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/ModelServices/Regression/LinearRegressionService.cs:line 22
+   at CallSite.Target(Closure , CallSite , Object )
+   at Fast.ML.Services.MachineLearningService.Train(TrainingRequest request, CancellationToken token) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/MachineLearningService.cs:line 76
+2022-06-06T15:12:38.5791630+03:00	INFO	[Microsoft.Hosting.Lifetime]	[0]	Application is shutting down...
+2022-06-06T15:12:42.8144150+03:00	INFO	[Microsoft.Hosting.Lifetime]	[ListeningOnAddress]	Now listening on: https://localhost:7131
+2022-06-06T15:12:42.8159160+03:00	INFO	[Microsoft.Hosting.Lifetime]	[ListeningOnAddress]	Now listening on: http://localhost:5282
+2022-06-06T15:12:42.8213720+03:00	INFO	[Microsoft.Hosting.Lifetime]	[0]	Application started. Press Ctrl+C to shut down.
+2022-06-06T15:12:42.8219490+03:00	INFO	[Microsoft.Hosting.Lifetime]	[0]	Hosting environment: Development
+2022-06-06T15:12:42.8219640+03:00	INFO	[Microsoft.Hosting.Lifetime]	[0]	Content root path: /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML
+2022-06-06T15:13:03.8233920+03:00	INFO	[Microsoft.Hosting.Lifetime]	[0]	Application is shutting down...
+2022-06-06T15:13:07.7919490+03:00	INFO	[Microsoft.Hosting.Lifetime]	[ListeningOnAddress]	Now listening on: https://localhost:7131
+2022-06-06T15:13:07.7935510+03:00	INFO	[Microsoft.Hosting.Lifetime]	[ListeningOnAddress]	Now listening on: http://localhost:5282
+2022-06-06T15:13:07.7985240+03:00	INFO	[Microsoft.Hosting.Lifetime]	[0]	Application started. Press Ctrl+C to shut down.
+2022-06-06T15:13:07.7990980+03:00	INFO	[Microsoft.Hosting.Lifetime]	[0]	Hosting environment: Development
+2022-06-06T15:13:07.7991150+03:00	INFO	[Microsoft.Hosting.Lifetime]	[0]	Content root path: /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML
+2022-06-06T15:13:20.3972420+03:00	INFO	[System.Net.Http.HttpClient.PreprocessingServiceClient.LogicalHandler]	[RequestPipelineStart]	Start processing HTTP request POST http://localhost:82/fast_ml_preprocessor.PreprocessingService/PreprocessDataset
+2022-06-06T15:13:20.3985190+03:00	INFO	[System.Net.Http.HttpClient.PreprocessingServiceClient.ClientHandler]	[RequestStart]	Sending HTTP request POST http://localhost:82/fast_ml_preprocessor.PreprocessingService/PreprocessDataset
+2022-06-06T15:13:20.7782810+03:00	INFO	[System.Net.Http.HttpClient.PreprocessingServiceClient.ClientHandler]	[RequestEnd]	Received HTTP response headers after 374.1833ms - 200
+2022-06-06T15:13:20.7787800+03:00	INFO	[System.Net.Http.HttpClient.PreprocessingServiceClient.LogicalHandler]	[RequestPipelineEnd]	End processing HTTP request after 388.6685ms - 200
+2022-06-06T15:13:20.7958820+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Training dataset was successfully preprocessed
+2022-06-06T15:13:20.8000920+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Started training LinearRegression
+2022-06-06T15:13:20.9159790+03:00	INFO	[System.Net.Http.HttpClient.LinearRegressionServiceClient.LogicalHandler]	[RequestPipelineStart]	Start processing HTTP request POST http://localhost:84/fast_ml_linear_regression.LinearRegressionService/Train
+2022-06-06T15:13:20.9159970+03:00	INFO	[System.Net.Http.HttpClient.LinearRegressionServiceClient.ClientHandler]	[RequestStart]	Sending HTTP request POST http://localhost:84/fast_ml_linear_regression.LinearRegressionService/Train
+2022-06-06T15:13:21.0146630+03:00	INFO	[System.Net.Http.HttpClient.LinearRegressionServiceClient.ClientHandler]	[RequestEnd]	Received HTTP response headers after 98.6237ms - 200
+2022-06-06T15:13:21.0146930+03:00	INFO	[System.Net.Http.HttpClient.LinearRegressionServiceClient.LogicalHandler]	[RequestPipelineEnd]	End processing HTTP request after 98.7438ms - 200
+2022-06-06T15:13:21.0182860+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Started training Ridge
+2022-06-06T15:13:21.0183710+03:00	INFO	[System.Net.Http.HttpClient.LinearRegressionServiceClient.LogicalHandler]	[RequestPipelineStart]	Start processing HTTP request POST http://localhost:84/fast_ml_linear_regression.LinearRegressionService/Train
+2022-06-06T15:13:21.0183780+03:00	INFO	[System.Net.Http.HttpClient.LinearRegressionServiceClient.ClientHandler]	[RequestStart]	Sending HTTP request POST http://localhost:84/fast_ml_linear_regression.LinearRegressionService/Train
+2022-06-06T15:13:44.9913930+03:00	INFO	[System.Net.Http.HttpClient.LinearRegressionServiceClient.ClientHandler]	[RequestEnd]	Received HTTP response headers after 23972.6656ms - 200
+2022-06-06T15:13:44.9915050+03:00	INFO	[System.Net.Http.HttpClient.LinearRegressionServiceClient.LogicalHandler]	[RequestPipelineEnd]	End processing HTTP request after 23973.1091ms - 200
+2022-06-06T15:13:44.9930420+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Started training SGDRegressor
+2022-06-06T15:13:44.9939020+03:00	INFO	[System.Net.Http.HttpClient.LinearRegressionServiceClient.LogicalHandler]	[RequestPipelineStart]	Start processing HTTP request POST http://localhost:84/fast_ml_linear_regression.LinearRegressionService/Train
+2022-06-06T15:13:44.9940710+03:00	INFO	[System.Net.Http.HttpClient.LinearRegressionServiceClient.ClientHandler]	[RequestStart]	Sending HTTP request POST http://localhost:84/fast_ml_linear_regression.LinearRegressionService/Train
+2022-06-06T15:14:10.9628180+03:00	INFO	[Microsoft.Hosting.Lifetime]	[0]	Application is shutting down...
+2022-06-06T15:14:16.0071510+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Status(StatusCode="Cancelled", Detail="Call canceled by the client.")
+2022-06-06T15:14:16.0298920+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	   at Fast.ML.Services.ModelServices.Regression.LinearRegressionService.TrainAsync(TrainingRequest request, CancellationToken cancellationToken) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/ModelServices/Regression/LinearRegressionService.cs:line 15
+   at Fast.ML.Services.ModelServices.Regression.LinearRegressionService.TrainAsync[TTrainingRequest](TTrainingRequest request, CancellationToken cancellationToken) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/ModelServices/Regression/LinearRegressionService.cs:line 22
+   at CallSite.Target(Closure , CallSite , Object )
+   at Fast.ML.Services.MachineLearningService.Train(TrainingRequest request, CancellationToken token) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/MachineLearningService.cs:line 76
+2022-06-06T15:14:16.0310480+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Started training ElasticNet
+2022-06-06T15:14:16.0435770+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	Status(StatusCode="Cancelled", Detail="Call canceled by the client.")
+2022-06-06T15:14:16.0438930+03:00	INFO	[Fast.ML.Services.MachineLearningService]	[0]	   at Fast.ML.Services.ModelServices.Regression.LinearRegressionService.TrainAsync(TrainingRequest request, CancellationToken cancellationToken) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/ModelServices/Regression/LinearRegressionService.cs:line 15
+   at Fast.ML.Services.ModelServices.Regression.LinearRegressionService.TrainAsync[TTrainingRequest](TTrainingRequest request, CancellationToken cancellationToken) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/ModelServices/Regression/LinearRegressionService.cs:line 22
+   at CallSite.Target(Closure , CallSite , Object )
+   at Fast.ML.Services.MachineLearningService.Train(TrainingRequest request, CancellationToken token) in /Users/mmanakhova/Desktop/fastml-web-api/Fast.ML/Services/MachineLearningService.cs:line 76
